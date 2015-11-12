@@ -1,0 +1,90 @@
+#whatNext{
+	padding: 0px 0px;
+	margin-left: 50px;
+}
+
+.col{
+	min-width: 300px;
+	max-width: 360px;
+	display: inline-table;
+
+}
+
+.col_header{
+	display: block;
+	margin-top: 10px;
+	text-align: center;
+ 
+
+}
+
+.col_button{
+	margin-top: 10px;
+	display: block;
+	text-align: center;
+
+}
+
+.col_content{
+	display: block;
+	text-align: center;
+	max-width: 300px;
+
+}
+
+.content_a{
+	display: block;
+	margin-top: 3px;
+}
+
+#col1{
+	
+	
+}
+
+#col1_header{
+}
+
+#col1_button{
+
+}
+
+#col1_content{
+	visibility: hidden;
+
+}
+
+#col2{
+
+}
+
+#col2_header{
+
+}
+
+#col2_button{
+
+}
+
+#col2_content{
+	visibility: hidden;
+}
+
+
+#col3{
+
+}
+
+#col3_header{
+
+}
+
+#col3_button{
+
+}
+
+#col3_content{
+	visibility: hidden;
+}
+
+
