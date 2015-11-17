@@ -11,7 +11,11 @@ jQuery(function($){
             $("a:contains('Search the library catalog')").addClass("btn searchCat-action");
             $("a:contains('Request via Interlibrary Loan')").addClass("btn ill-action");
             $("<h3 class=\"custom-links-header\">Not available online or through the catalog?</h3>").insertBefore(".xill");
-            $("<h3>Questions?</h3>").insertAfter(".xill");
+            $("<h3>Questions?</h3>").insertBefore(".ask_us");
+            $(".ask_us a").addClass("btn ask-action");
+            $(".ask-action").css("margin-bottom", "10px");
+
+
            
 
         /*sidebar actions*/   
