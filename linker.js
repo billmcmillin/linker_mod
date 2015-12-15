@@ -32,22 +32,27 @@ jQuery(function($){
 
             /*for catalog searches*/
                 //grab the title from the URL
-                if(itemURL.indexOf('title') != -1){
-                    var title = itemURL.replace(/.*title=/i, "");
-                    var title = title.replace(/&.*/i, "");
+                var title = "NULL"
+                if(itemURL.indexOf('&title') != -1){
+                    title = itemURL.replace(/.*&title=/i, "");
+                    title = title.replace(/&.*/i, "");
+                }
+                else if(itemURL.indexOf('\.title') != -1){
+                    title = itemURL.replace(/.*\.title=/i, "");
+                    title = title.replace(/&.*/i, "");
                 }
                 else{
-                    var title = "NULL";
+                    title = "NULL";
                 }
-                
 
+                var issn = "NULL";
                 //grab issn from the URL
                 if(itemURL.indexOf('issn') != -1){
-                    var issn = itemURL.replace(/.*issn=/i, "");
-                    var issn = issn.replace(/&.*/i, "");
+                    issn = itemURL.replace(/.*issn=/i, "");
+                    issn = issn.replace(/&.*/i, "");
                 }
                 else{
-                    var issn = "NULL";
+                    issn = "NULL";
                 }
                 
 
