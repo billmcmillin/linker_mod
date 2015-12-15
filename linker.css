@@ -50,7 +50,7 @@
 }
 
 #col1_content{
-	visibility: hidden;
+
 
 }
 
@@ -67,16 +67,15 @@
 }
 
 #col2_content{
-	visibility: hidden;
+
 }
 
 
 #col3{
-
+	min-width: 250px;
 }
 
 #col3_header{
-
 }
 
 #col3_button{
@@ -84,7 +83,6 @@
 }
 
 #col3_content{
-	visibility: hidden;
 }
 
 
