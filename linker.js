@@ -21,15 +21,26 @@ jQuery(function($){
                 var itemURL = window.location.href;
 
                 //base URLs for different ILL forms
-                var base1 = "http://illiad.uc.edu/illiad/CIN/illiad.dll/OpenURL?CitedIn=";
-                var base2 = "http://illiad.uc.edu/illiad/MXC/illiad.dll/OpenURL?CitedIn=";
+                var base1 = "http://illiad.uc.edu/illiad/CIN/illiad.dll/OpenURL?pid=";
+                var base2 = "http://illiad.uc.edu/illiad/MXC/illiad.dll/OpenURL?pid=";
                 var base3 = "http://uclid.uc.edu/search~S14/t=";
                 var base4 = "http://uclid.uc.edu/search/i=";
 
-
+                var authorlast = "NULL";
+                var authorfirst = "NULL";
+                var authorinit = "NULL";
                 var title = "NULL";
+                var atitle = "NULL";
                 var issn = "NULL";
+                var isbn = "NULL";
                 var db = "NULL";
+                var itemdate = "NULL";
+                var edition = "NULL";
+                var pub = "NULL";
+                var vol = "NULL";
+                var issue = "NULL";
+                var genre = "NULL";
+                var pages = "NULL";
 
                 if($("input[name='title'")){
                     title = $("input[name='title'").attr('value');
@@ -37,21 +48,91 @@ jQuery(function($){
                 else{
                     title = "NULL";
                 }
-
+                if($("input[name='atitle'")){
+                    atitle = $("input[name='atitle'").attr('value');
+                }
+                else{
+                    atitle = "NULL";
+                }
+                if($("input[name='aulast'")){
+                    authorlast = $("input[name='aulast'").attr('value');
+                }
+                else{
+                    authorlast = "NULL";
+                }
+                if($("input[name='aufirst'")){
+                    authorfirst = $("input[name='aufirst'").attr('value');
+                }
+                else{
+                    authorfirst = "NULL";
+                }
+                if($("input[name='auinit'")){
+                    authorinit= $("input[name='auinit'").attr('value');
+                }
+                else{
+                    authorinit = "NULL";
+                }
                 if($("input[name='issn'")){
                     issn = $("input[name='issn'").attr('value');
+                }
+                else if($("input[name='isbn'")){
+                    issn = $("input[name='isbn'").attr('value');
                 }
                 else{
                     issn = "NULL";
                 }
-                if(itemURL.indexOf("&sid") > -1){
-                    var begin = itemURL.indexOf("&sid");
-                    db = itemURL.substring(begin + 5);
+                if($("input[name='date'")){
+                    itemdate = $("input[name='date'").attr('value');
+                }
+                else{
+                    itemdate = "NULL";
+                }
+                if($("input[name='edition'")){
+                    edition = $("input[name='edition'").attr('value');
+                }
+                else{
+                    edition = "NULL";
+                }
+                if($("input[name='pub'")){
+                    pub = $("input[name='pub'").attr('value');
+                }
+                else{
+                    pub = "NULL";
+                }
+                if($("input[name='volume'")){
+                    vol = $("input[name='volume'").attr('value');
+                }
+                else{
+                    vol = "NULL";
+                }
+                if($("input[name='issue'")){
+                    issue = $("input[name='issue'").attr('value');
+                }
+                else{
+                    issue = "NULL";
+                }
+                if($("input[name='genre'")){
+                    genre = $("input[name='genre'").attr('value');
+                }
+                else{
+                    genre = "NULL";
+                }
+                if($("input[name='pages'")){
+                    pages = $("input[name='pages'").attr('value');
+                }
+                else{
+                    pages = "NULL";
+                }
+
+
+                if(itemURL.indexOf("sid") > -1){
+                    var begin = itemURL.indexOf("sid");
+                    db = itemURL.substring(begin + 4);
                     var end = db.indexOf("&");
                     db = db.substring(0, end);
                 }
                 else{
-                    db = "Summon";
+                    db = "360 Link";
                 }
 
                 //append it to the base URL 
@@ -72,10 +153,8 @@ jQuery(function($){
                 var elements = itemURL.replace(/.*serialssolutions.com\/?/i, "");
                 console.log(elements);
                 //concatenate the OpenURL elements to the base
-                var open1 = base1 + db + "&";
-                open1 = open1 + elements;
-                var open2 = base2 + db + "&";
-                open2 = open2 + elements;
+                var open1 = base1 + db + "&title=" + title + "&atitle=" + atitle + "&issn=" + issn + "&aulast=" + authorlast + "&aufirst=" + authorfirst + "&auinitm=" + authorinit + "&date=" + itemdate + "&edition=" + edition + "&LoanPublisher=" + pub + "&volume=" + vol + "&issue=" + issue + "&pages=" + pages + "&genre=" + genre;
+                var open2 = base2 + db + "&title=" + title + "&atitle=" + atitle + "&issn=" + issn + "&aulast=" + authorlast + "&aufirst=" + authorfirst + "&auinitm=" + authorinit + "&date=" + itemdate + "&edition=" + edition + "&LoanPublisher=" + pub + "&volume=" + vol + "&issue=" + issue + "&pages=" + pages + "&genre=" + genre;
 
                 //update the link in html
                 $(".ill-action").html("<a href=\x22" + open1 + "\x22 target=\"_blank\" style=\"color:#333\">Request via Interlibrary Loan</a>");
