@@ -10,11 +10,11 @@ jQuery(function($i){
 
         /*container styles*/
        
-            $i("a:contains('Search the catalog for print version')").addClass("btn searchCat-action");
-            $i("a:contains('Request via Interlibrary Loan')").addClass("btn ill-action");
+            //$i("a:contains('Search the catalog for print version')").addClass("btn searchCat-action");
+            //$i("a:contains('Request via Interlibrary Loan')").addClass("btn ill-action");
             $i("<h3 class=\"custom-links-header\">2. Not available at UC?</h3>").insertBefore(".xill");
             $i("<h3>3. Need help?</h3>").insertBefore(".ask_us");
-            $i(".ask_us a").addClass("btn ask-action");
+            //$i(".ask_us a").addClass("btn ask-action");
             $i(".ask-action").css("margin-bottom", "10px");
 
         /*sidebar actions*/   
