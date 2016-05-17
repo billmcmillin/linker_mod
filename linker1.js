@@ -85,7 +85,7 @@ jQuery(function($i){
                     }
                 }
                 else{
-                    title = "undefined";
+                    title = " ";
                 }
                 if($i("input[name='atitle'").length){
                     atitle = document.getElementsByName('atitle')[0].value;
@@ -97,7 +97,7 @@ jQuery(function($i){
                     }
                 }
                 else{
-                    atitle = "undefined";
+                    atitle = " ";
                 }
                 if($i("input[name='aulast'").length){
                     authorlast = document.getElementsByName('aulast')[0].value;
@@ -107,7 +107,7 @@ jQuery(function($i){
                     }                
                 }
                 else{
-                    authorlast = "undefined";
+                    authorlast = " ";
                 }
                 if($i("input[name='aufirst'").length){
                     authorfirst = document.getElementsByName('aufirst')[0].value;
@@ -117,7 +117,7 @@ jQuery(function($i){
                     }                 
                 }
                 else{
-                    authorfirst = "undefined";
+                    authorfirst = " ";
                 }
                 if($i("input[name='auinit'").length){
                     authorinit = document.getElementsByName('auinit')[0].value;
@@ -126,7 +126,7 @@ jQuery(function($i){
                     } 
                 }
                 else{
-                    authorinit = "undefined";
+                    authorinit = " ";
                 }
                 if($i("input[name='issn'").length){
                     issn = document.getElementsByName('issn')[0].value;
@@ -141,7 +141,7 @@ jQuery(function($i){
                     }                 
                 }
                 else{
-                    issn = "undefined";
+                    issn = " ";
                 }
                 if($i("input[name='date'").length){
                     itemdate = document.getElementsByName('date')[0].value;
@@ -151,7 +151,7 @@ jQuery(function($i){
                     }
                 }
                 else{
-                    itemdate = "undefined";
+                    itemdate = " ";
                 }
                 if($i("input[name='edition'").length){
                     edit = document.getElementsByName('edition')[0].value;
@@ -160,7 +160,7 @@ jQuery(function($i){
                     }
                 }
                 else{
-                    edit = "undefined";
+                    edit = " ";
                 }
                 if($i("input[name='pub'").length){
                     pub = document.getElementsByName('pub')[0].value;
@@ -170,7 +170,7 @@ jQuery(function($i){
                     } 
                 }
                 else{
-                    pub = "undefined";
+                    pub = " ";
                 }
                 if($i("input[name='volume'").length){
                     vol = document.getElementsByName('volume')[0].value;
@@ -179,7 +179,7 @@ jQuery(function($i){
                     }                 
                 }
                 else{
-                    vol = "undefined";
+                    vol = " ";
                 }
                 if($i("input[name='issue'").length){
                     issue = document.getElementsByName('issue')[0].value;
@@ -188,7 +188,7 @@ jQuery(function($i){
                     }                 
                 }
                 else{
-                    issue = "undefined";
+                    issue = " ";
                 }
                 if($i("input[name='genre'").length){
                     genre = document.getElementsByName('genre')[0].value;
@@ -197,7 +197,7 @@ jQuery(function($i){
                     }                 
                 }
                 else{
-                    genre = "undefined";
+                    genre = " ";
                 }
                 if($i("input[name='pages'").length){
                     pages = document.getElementsByName('pages')[0].value;
@@ -206,7 +206,7 @@ jQuery(function($i){
                     }                 
                 }
                 else{
-                    pages = "undefined";
+                    pages = " ";
                 }
 
 
