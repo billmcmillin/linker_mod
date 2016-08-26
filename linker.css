@@ -89,3 +89,17 @@
 	color: #333;
 }
 
+#new_win{
+	margin: 5px 20px 0 20px;
+}
+
+#new_win a{
+	color: red;
+	font-size: 110%;
+	font-weight: bold;
+}
+
+#ckey_warn a{
+	font-size: 110%;
+	font-weight: bold;
+}

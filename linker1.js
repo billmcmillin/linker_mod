@@ -7,12 +7,12 @@ jQuery(function($i){
     {
         if(pageInitialized) return;
         pageInitialized = true;
-
         
-        $i('head').append('<link href=\"http://homepages.uc.edu/~mcmillwh/linker.css\" rel=\"stylesheet\" type=\"text/css\" />');
+				$i('head').append('<link href=\"http://homepages.uc.edu/~mcmillwh/linker.css\" rel=\"stylesheet\" type=\"text/css\" />');
 
         $i("document").ready(function() {
-            
+           
+				 		 
             //If it's the sidebar container, get frame source by Id
             if (document.getElementById('website')){
                 var frame_src = document.getElementById('website').src;
@@ -20,20 +20,20 @@ jQuery(function($i){
                 var frame_code = frame_src.replace(/.*Link\&U\=\/?/i, "");
                 var dest_new = decodeURIComponent(frame_code);
 
-                
-                var psc = "apa.org";
-                if(frame_src.indexOf(psc) != -1){
-                  var psyc_code = frame_src.replace(/.*Link\&U\=\/?/i, "");
-                  var psyc_new = decodeURIComponent(psyc_code);
-                  var cont = window.confirm("Psycarticles is currently causing errors in Article Linker. Please disable pop-up blockers and click 'OK' to be redirected to the journal requested or 'Cancel' to stay on this page. You may also paste this url into a new browser window: " + psyc_new);
-                    if (cont == true) {
-                        window.open(psyc_new);
-                        } 
-                }
+
+								//for clinical key
+								var ckey = "clinicalkey.com";
+								var inT = frame_src.indexOf(ckey);
+								if(frame_src.indexOf(ckey)!= -1){
+									$i("<div id=\"ckey_warn\" />").insertAfter("#source-control");
+               	  $i("#ckey_warn").html("<a href=\x22" + "https:\/\/www.libraries.uc.edu\/off-campus-access.html" + "\x22 target=\"_blank\">Off-campus access to ClinicalKey is available only through the VPN.</a></div>");
+
+
+								}
+								
 
                 $i("<div id=\"new_win\" />").insertAfter(".header");
                 $i("#new_win").html("<a href=\x22" + dest_new + "\x22 target=\"_blank\">Article not loading? Click here to open in a new window.</a></div>");
-
             }
             
 
@@ -48,22 +48,23 @@ jQuery(function($i){
             $i(".ask-action").css("margin-bottom", "10px");
 
         /*sidebar actions*/   
+                var edition = edition || {};
                 //get the current URL
                 var itemURL = window.location.href;
 
                 //base URLs for different ILL forms
                 var base1 = "http://illiad.uc.edu/illiad/CIN/illiad.dll/OpenURL?pid=";
                 var base2 = "http://illiad.uc.edu/illiad/MXC/illiad.dll/OpenURL?pid=";
-                var base3 = "http://uclid.uc.edu/search~S14/t=";
+								//for periodicals
+								var base3 = "http://uclid.uc.edu/search~S13/t=";
                 var base4 = "http://uclid.uc.edu/search/i=";
-
                 var authorlast = new String();
                 var authorfirst = new String();
                 var authorinit = new String();
                 var title = new String();
                 var atitle = new String();
                 var issn = new String();
-                var edit = new String();
+                var edition = new String();
                 var isbn = new String();
                 var db = new String();
                 var itemdate = new String();
@@ -73,140 +74,169 @@ jQuery(function($i){
                 var genre = new String();
                 var pages = new String();
 
-                if($i("input[name='title'").length){
-                    //title = $i("input[name='title'").attr('value');
-                    title = document.getElementsByName('title')[0].value;
+                if($i("input[name='title'")){
+                    title = $i("input[name='title'").attr('value');
                     if(typeof title != 'undefined'){
                         title = title.replace(/ /g, "+");
-                        title = title.replace(/\//g, "-");
-                        title = title.replace(":", " ");
-                        title = title.replace(/"/g, " ");
-
                     }
+										else{
+                    	title = "";
+                		}
                 }
                 else{
-                    title = " ";
+                    title = "NULL";
                 }
-                if($i("input[name='atitle'").length){
-                    atitle = document.getElementsByName('atitle')[0].value;
+                if($i("input[name='atitle'")){
+                    atitle = $i("input[name='atitle'").attr('value');
                     if(typeof atitle != 'undefined'){
                         atitle = atitle.replace(/ /g, "+");
-                        atitle = atitle.replace(/\//g, "-");
-                        atitle = atitle.replace(":", " ");
-                        atitle = atitle.replace(/"/g, " ");
                     }
-                }
+										else{
+                    	atitle = "";
+                		}							}
                 else{
-                    atitle = " ";
+                    atitle = "NULL";
                 }
-                if($i("input[name='aulast'").length){
-                    authorlast = document.getElementsByName('aulast')[0].value;
-                    if(typeof aulast != 'undefined'){
+                if($i("input[name='aulast'")){
+                    authorlast = $i("input[name='aulast'").attr('value');
+                    if(typeof authorlast != 'undefined'){
                         authorlast = authorlast.replace(/ /g, "+");
-                        authorlast = authorlast.replace(/\//g, "-");
-                    }                
+                    } 
+										else{ 
+                    	authorlast = "";
+                		}
                 }
                 else{
-                    authorlast = " ";
+                    authorlast = "NULL";
                 }
-                if($i("input[name='aufirst'").length){
-                    authorfirst = document.getElementsByName('aufirst')[0].value;
-                    if(typeof aufirst != 'undefined'){
+                if($i("input[name='aufirst'")){
+                    authorfirst = $i("input[name='aufirst'").attr('value');
+                    if(typeof authorfirst != 'undefined'){
                         authorfirst = authorfirst.replace(/ /g, "+");
-                        authorfirst = authorfirst.replace(/\//g, "-");
-                    }                 
+                    } 
+										else{ 
+                    	authorfirst = "";
+                		}
                 }
                 else{
-                    authorfirst = " ";
+                    authorfirst = "NULL";
                 }
-                if($i("input[name='auinit'").length){
-                    authorinit = document.getElementsByName('auinit')[0].value;
+                if($i("input[name='auinit'")){
+                    authorinit = $i("input[name='auinit'").attr('value');
                     if(typeof authorinit != 'undefined'){
                         authorinit = authorinit.replace(/ /g, "+");
                     } 
+										else{
+                    	authorinit = "";
+                		}
                 }
                 else{
-                    authorinit = " ";
+                    authorinit = "NULL";
                 }
-                if($i("input[name='issn'").length){
-                    issn = document.getElementsByName('issn')[0].value;
+                if($i("input[name='issn'")){
+                    issn = $i("input[name='issn'").attr('value');
                     if(typeof issn != 'undefined'){
                         issn = issn.replace(/ /g, "+");
                     } 
+										else{
+                    	issn = "";
+                		}
                 }
-                else if($i("input[name='isbn'").length){
-                    issn = document.getElementsByName('isbn')[0].value;
+                else if($i("input[name='isbn'")){
+                    issn = $i("input[name='isbn'").attr('value');
                     if(typeof issn != 'undefined'){
                         issn = issn.replace(/ /g, "+");
-                    }                 
+                    } 
+										else{
+                    	issn = "";
+                		}                
                 }
                 else{
-                    issn = " ";
+                    issn = "NULL";
                 }
-                if($i("input[name='date'").length){
-                    itemdate = document.getElementsByName('date')[0].value;
+                if($i("input[name='date'")){
+                    itemdate = $i("input[name='date'").attr('value');
                     if(typeof itemdate != 'undefined'){
                         itemdate = itemdate.replace(/ /g, "+");
-                        itemdate = itemdate.replace(/\//g, "-");
-                    }
+                    } 
+										else{
+                    	itemdate = "";
+                		}
                 }
                 else{
-                    itemdate = " ";
+                    itemdate = "NULL";
                 }
-                if($i("input[name='edition'").length){
-                    edit = document.getElementsByName('edition')[0].value;
-                    if(typeof(edit) != 'undefined'){
-                        edit.replace(/ /g, "+");
+                if($i("input[name='edition'")){
+                    edition = $i("input[name='edition'").attr('value');
+                    if(typeof(edition) != 'undefined'){
+                        edition.replace(/ /g, "+");
                     }
+										else{
+                    	edition = "";
+                		}
                 }
                 else{
-                    edit = " ";
+                    edition = "NULL";
                 }
-                if($i("input[name='pub'").length){
-                    pub = document.getElementsByName('pub')[0].value;
+                if($i("input[name='pub'")){
+                    pub = $i("input[name='pub'").attr('value');
                     if(typeof pub != 'undefined'){
                         pub = pub.replace(/ /g, "+");
-                        pub = pub.replace(/\//g, "-");
                     } 
+										else{
+                    	pub = "";
+                		}
                 }
                 else{
-                    pub = " ";
+                    pub = "NULL";
                 }
-                if($i("input[name='volume'").length){
-                    vol = document.getElementsByName('volume')[0].value;
+                if($i("input[name='volume'")){
+                    vol = $i("input[name='volume'").attr('value');
                     if(typeof vol != 'undefined'){
                         vol = vol.replace(/ /g, "+");
-                    }                 
+                    }
+										else{
+                    	vol = "";
+                		}
                 }
                 else{
-                    vol = " ";
+                    vol = "NULL";
                 }
-                if($i("input[name='issue'").length){
-                    issue = document.getElementsByName('issue')[0].value;
+                if($i("input[name='issue'")){
+                    issue = $i("input[name='issue'").attr('value');
                     if(typeof issue != 'undefined'){
                         issue = issue.replace(/ /g, "+");
-                    }                 
+                    } 
+										else{
+                    	issue = "";
+                		}                
                 }
                 else{
-                    issue = " ";
+                    issue = "NULL";
                 }
-                if($i("input[name='genre'").length){
-                    genre = document.getElementsByName('genre')[0].value;
+                if($i("input[name='genre'")){
+                    genre = $i("input[name='genre'").attr('value');
                     if(typeof genre != 'undefined'){
                         genre = genre.replace(/ /g, "+");
-                    }                 
+                    } 
+										else{
+                    	genre = "";
+                		}                
                 }
                 else{
-                    genre = " ";
+                    genre = "NULL";
                 }
-                if($i("input[name='pages'").length){
-                    pages = document.getElementsByName('pages')[0].value;
+                if($i("input[name='pages'")){
+                    pages = $i("input[name='pages'").attr('value');
                     if(typeof pages != 'undefined'){
                         pages = pages.replace(/ /g, "+");
-                    }                 
+                    }
+										else{
+                    	pages = "";
+                		}
                 }
                 else{
-                    pages = " ";
+                    pages = "NULL";
                 }
 
 
@@ -238,10 +268,9 @@ jQuery(function($i){
             /*for ILL*/
                 //extract the OpenURL elements from the whole URL
                 var elements = itemURL.replace(/.*serialssolutions.com\/?/i, "");
-                console.log(elements);
                 //concatenate the OpenURL elements to the base
-                var open1 = base1 + db + "&title=" + title + "&atitle=" + atitle + "&issn=" + issn + "&aulast=" + authorlast + "&aufirst=" + authorfirst + "&auinitm=" + authorinit + "&date=" + itemdate + "&edition=" + edit + "&LoanPublisher=" + pub + "&volume=" + vol + "&issue=" + issue + "&pages=" + pages + "&genre=" + genre;
-                var open2 = base2 + db + "&title=" + title + "&atitle=" + atitle + "&issn=" + issn + "&aulast=" + authorlast + "&aufirst=" + authorfirst + "&auinitm=" + authorinit + "&date=" + itemdate + "&edition=" + edit + "&LoanPublisher=" + pub + "&volume=" + vol + "&issue=" + issue + "&pages=" + pages + "&genre=" + genre;
+                var open1 = base1 + db + "&title=" + title + "&atitle=" + atitle + "&issn=" + issn + "&aulast=" + authorlast + "&aufirst=" + authorfirst + "&auinitm=" + authorinit + "&date=" + itemdate + "&edition=" + edition + "&LoanPublisher=" + pub + "&volume=" + vol + "&issue=" + issue + "&pages=" + pages + "&genre=" + genre;
+                var open2 = base2 + db + "&title=" + title + "&atitle=" + atitle + "&issn=" + issn + "&aulast=" + authorlast + "&aufirst=" + authorfirst + "&auinitm=" + authorinit + "&date=" + itemdate + "&edition=" + edition + "&LoanPublisher=" + pub + "&volume=" + vol + "&issue=" + issue + "&pages=" + pages + "&genre=" + genre;
 
                 //update the link in html
                 $i(".ill-action").html("<a href=\x22" + open1 + "\x22 target=\"_blank\" style=\"color:#333\">Request via Interlibrary Loan</a>");
