@@ -99,18 +99,24 @@ jQuery(function($i){
                 }
                 if($i("input[name='aulast'")){
                     authorlast = $i("input[name='aulast'").attr('value');
-                    if(typeof aulast != 'undefined'){
+                    if(typeof authorlast != 'undefined'){
                         authorlast = authorlast.replace(/ /g, "+");
                     } 
+										else{ 
+                    	authorlast = "";
+                		}
                 }
                 else{
                     authorlast = "NULL";
                 }
                 if($i("input[name='aufirst'")){
                     authorfirst = $i("input[name='aufirst'").attr('value');
-                    if(typeof aufirst != 'undefined'){
+                    if(typeof authorfirst != 'undefined'){
                         authorfirst = authorfirst.replace(/ /g, "+");
                     } 
+										else{ 
+                    	authorfirst = "";
+                		}
                 }
                 else{
                     authorfirst = "NULL";
