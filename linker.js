@@ -27,13 +27,21 @@ jQuery(function($i){
 								if(frame_src.indexOf(ckey)!= -1){
 									$i("<div id=\"ckey_warn\" />").insertAfter("#source-control");
                	  $i("#ckey_warn").html("<a href=\x22" + "https:\/\/www.libraries.uc.edu\/off-campus-access.html" + "\x22 target=\"_blank\">Off-campus access to ClinicalKey is available only through the VPN.</a></div>");
-
-
 								}
 								
 
+								//for GetItNow
+								var gin = "copyright.com";
+								var ginT = frame_src.indexOf(gin);
+								if(frame_src.indexOf("copyright.com")!= -1){
+									$i("<div id=\"new_win\" />").insertAfter(".header");
+                	$i("#new_win").html("<a href=\x22" + dest_new + "\x22 target=\"_blank\">Get It Now is a trial service. It may be available for a limited time.</a></div>");
+								}	
+								else{
                 $i("<div id=\"new_win\" />").insertAfter(".header");
                 $i("#new_win").html("<a href=\x22" + dest_new + "\x22 target=\"_blank\">Article not loading? Click here to open in a new window.</a></div>");
+								}
+
             }
             
 
