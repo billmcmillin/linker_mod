@@ -4,8 +4,25 @@
 	margin-top: 5px;
 }
 
-.custom-links{
+.full-xill{
 	visibility: hidden;
+}
+
+.row-fluid.section-no-border.custom-links{
+	height: 0px;
+	visibility: hidden;
+}
+
+.hide-side a{
+	display: block;
+	margin-left: 10px;
+	margin-top: 5px;
+}
+
+.xill a{
+	display: block;
+  margin-left: 10px;
+  margin-top: 5px;
 }
 
 #whatNext{
