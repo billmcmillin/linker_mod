@@ -4,8 +4,16 @@
 	margin-top: 5px;
 }
 
-.custom-links{
-	visibility: hidden;
+.hide-side a{
+	display: block;
+	margin-left: 10px;
+	margin-top: 5px;
+}
+
+.xill a{
+	display: block;
+  margin-left: 10px;
+  margin-top: 5px;
 }
 
 #whatNext{

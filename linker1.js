@@ -5,10 +5,11 @@ jQuery(function($i){
     var pageInitialized = false;
     $i(function()
     {
-        if(pageInitialized) return;
+       if(pageInitialized) return;
         pageInitialized = true;
         
-				$i('head').append('<link href=\"http://homepages.uc.edu/~mcmillwh/linker.css\" rel=\"stylesheet\" type=\"text/css\" />');
+				$i('head').append('<link href=\"http://libapps.libraries.uc.edu/summon/link/linker1.css\" rel=\"stylesheet\" type=\"text/css\" />');
+
 
         $i("document").ready(function() {
            
@@ -27,13 +28,21 @@ jQuery(function($i){
 								if(frame_src.indexOf(ckey)!= -1){
 									$i("<div id=\"ckey_warn\" />").insertAfter("#source-control");
                	  $i("#ckey_warn").html("<a href=\x22" + "https:\/\/www.libraries.uc.edu\/off-campus-access.html" + "\x22 target=\"_blank\">Off-campus access to ClinicalKey is available only through the VPN.</a></div>");
-
-
 								}
 								
 
+								//for GetItNow
+								var gin = "copyright.com";
+								var ginT = frame_src.indexOf(gin);
+								if(frame_src.indexOf("copyright.com")!= -1){
+									$i("<div id=\"new_win\" />").insertAfter(".header");
+                	$i("#new_win").html("<a href=\x22" + dest_new + "\x22 target=\"_blank\">Get It Now is a trial service. It may be available for a limited time.</a></div>");
+								}	
+								else{
                 $i("<div id=\"new_win\" />").insertAfter(".header");
                 $i("#new_win").html("<a href=\x22" + dest_new + "\x22 target=\"_blank\">Article not loading? Click here to open in a new window.</a></div>");
+								}
+
             }
             
 
@@ -42,7 +51,8 @@ jQuery(function($i){
             //$i("<span style=\"display: block; margin-left: 20px;\"><h3>*Note -</h3>Please use an updated version of Firefox or Chrome and use the <a href=\"http://www.libraries.uc.edu/off-campus-access.html\">UC VPN</a> from off campus to ensure all content loads correctly.</span><hr />").insertAfter(".header");
             $i("a:contains('Search the catalog for print version')").addClass("btn searchCat-action");
             $i("a:contains('Request via Interlibrary Loan')").addClass("btn ill-action");
-            $i("<h3 class=\"custom-links-header\">2. Not available at UC?</h3>").insertBefore(".xill");
+            //$i("<h3 class=\"custom-links-header\">2. Not available at UC?</h3>").insertBefore(".xill");
+            $i("<h3 class=\"custom-links-header\">2. Not available at UC?</h3>").insertAfter("#by_issn");
             $i("<h3>3. Need help?</h3>").insertBefore(".ask_us");
             $i(".ask_us a").addClass("btn ask-action");
             $i(".ask-action").css("margin-bottom", "10px");
@@ -260,10 +270,9 @@ jQuery(function($i){
                 $i(".searchCat-action").html("<a href=\x22" + search1 + "\x22 target=\"_blank\" style=\"color:#333\">Search the catalog for print version</a>");
                 $i("#by_title").html("<a href=\x22" + search1 + "\x22 target=\"_blank\">By Title</a>");
                 $i("#by_issn").html("<a href=\x22" + search2 + "\x22 target=\"_blank\">By ISSN</a>");
+                $i("#by_isnum").html("<a href=\x22" + search2 + "\x22 target=\"_blank\">By ISSN</a>");
 
                 //now update the CSS
-                $i("#by_title").css({"display":"block","margin-left":"10px", "margin-top":"5px"});
-                $i("#by_issn").css({"display":"block","margin-left":"10px", "margin-top":"5px"});
 
             /*for ILL*/
                 //extract the OpenURL elements from the whole URL
@@ -276,14 +285,10 @@ jQuery(function($i){
                 $i(".ill-action").html("<a href=\x22" + open1 + "\x22 target=\"_blank\" style=\"color:#333\">Request via Interlibrary Loan</a>");
                 $i("#illiad_link").html("<a href=\x22" + open1 + "\x22target=\"_blank\">Interlibrary Loan Form</a>");
                 $i("#hsl_link").html("<a href=\x22" + open2 + "\x22target=\"_blank\">Interlibrary Loan Form - HSL Users</a>");
-
+								//law link doesn't change
           
-                //now update the CSS
-                $i("#illiad_link").css({"display":"block","margin-left":"10px", "margin-top":"5px"});
-                $i("#hsl_link").css({"display":"block","margin-left":"10px", "margin-top":"5px"});
-                $i("#law_link").css({"display":"block","margin-left":"10px", "margin-top":"5px"});
 
-   
+  							//full page links go inside div.custom-links
                  
                      
             });
