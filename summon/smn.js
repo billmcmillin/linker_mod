@@ -2,7 +2,8 @@
 //
 //
 window.onload = function() {
-	if(window.DSHost.indexOf("sslvpn") > -1){
+	
+	if(document.referrer.indexOf("sslvpn") > -1){
 		appendCSS()
 		insertWarning()
 	}
