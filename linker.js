@@ -8,7 +8,7 @@ jQuery(function($i){
        if(pageInitialized) return;
         pageInitialized = true;
         
-				$i('head').append('<link href=\"http://libapps.libraries.uc.edu/summon/link/linker.css\" rel=\"stylesheet\" type=\"text/css\" />');
+				$i('head').append('<link href=\"https://libapps.libraries.uc.edu/summon/link/linker.css\" rel=\"stylesheet\" type=\"text/css\" />');
 
 
         $i("document").ready(function() {
@@ -36,7 +36,6 @@ jQuery(function($i){
 
         
         /*container styles*/
-            //$i("<span style=\"display: block; margin-left: 20px;\"><h3>*Note -</h3>Please use an updated version of Firefox or Chrome and use the <a href=\"http://www.libraries.uc.edu/off-campus-access.html\">UC VPN</a> from off campus to ensure all content loads correctly.</span><hr />").insertAfter(".header");
             $i("a:contains('Search the catalog for print version')").addClass("btn searchCat-action");
             $i("a:contains('Request via Interlibrary Loan')").addClass("btn ill-action");
             $i("<h3 class=\"custom-links-header\">2. Not available at UC?</h3>").insertAfter(".sidebar-title");
@@ -50,11 +49,11 @@ jQuery(function($i){
                 var itemURL = window.location.href;
 
                 //base URLs for different ILL forms
-                var base1 = "http://illiad.uc.edu/illiad/CIN/illiad.dll/OpenURL?pid=";
-                var base2 = "http://illiad.uc.edu/illiad/MXC/illiad.dll/OpenURL?pid=";
+                var base1 = "https://illiad.uc.edu/illiad/CIN/illiad.dll/OpenURL?pid=";
+                var base2 = "https://illiad.uc.edu/illiad/MXC/illiad.dll/OpenURL?pid=";
 								//for periodicals
-								var base3 = "http://uclid.uc.edu/search~S13/t=";
-                var base4 = "http://uclid.uc.edu/search/i=";
+								var base3 = "https://uclid.uc.edu/search~S13/t=";
+                var base4 = "https://uclid.uc.edu/search/i=";
                 var authorlast = new String();
                 var authorfirst = new String();
                 var authorinit = new String();
