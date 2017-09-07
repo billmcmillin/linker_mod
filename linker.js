@@ -31,6 +31,17 @@ jQuery(function($i){
 								}
 								
 
+								//for GetItNow
+								var gin = "copyright.com";
+								var ginT = frame_src.indexOf(gin);
+								if(frame_src.indexOf("copyright.com")!= -1){
+									$i("<div id=\"new_win\" />").insertAfter(".header");
+                	$i("#new_win").html("<a href=\x22" + dest_new + "\x22 target=\"_blank\">Get It Now is a trial service. It may be available for a limited time.</a></div>");
+								}	
+								else{
+                $i("<div id=\"new_win\" />").insertAfter(".header");
+								}
+
             }
             
 
@@ -115,6 +126,7 @@ jQuery(function($i){
                 $i("#by_title").html("<a href=\x22" + search1 + "\x22 target=\"_blank\">By Title</a>");
                 $i("#by_issn").html("<a href=\x22" + search2 + "\x22 target=\"_blank\">By ISSN</a>");
                 $i("#by_isnum").html("<a href=\x22" + search2 + "\x22 target=\"_blank\">By ISSN</a>");
+								//var ucl_ill = $i(".full-xill-UCL");
 								var ucl_ill = $i("div.full-xill-UCL a")
 								var hsl_ill = $i("div.full-xill-HSL a")
 								$i("#illiad_link").html(ucl_ill);	
